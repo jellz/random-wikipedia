@@ -34,7 +34,7 @@ function getRandomInt(min, max) {
 
 function startRandomCountdown() {
   chrome.storage.sync.get(['recurringRandom'], (result) => {
-    if (result.recurringRandom) {
+    if (result.recurringRandom === true) {
       chrome.alarms.clearAll();
       chrome.alarms.create('rw-countdown', {
         periodInMinutes: getRandomInt(2, 60)
